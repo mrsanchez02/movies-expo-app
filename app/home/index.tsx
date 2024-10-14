@@ -27,11 +27,11 @@ const HomeScreen = () => {
         {/* Carousel Movies */}
         <MainSlideShow movies={nowPlayingQuery.data ?? []} />
         {/* Popular List Movies */}
-        <MoviesHorizontalList movies={popularQuery.data ?? []} title='Popular' className='mb-5' />
+        <MoviesHorizontalList movies={popularQuery.data?.pages.flat() ?? []} title='Popular' className='mb-5' />
         {/* Top Rated List Movies */}
-        <MoviesHorizontalList movies={topRatedQuery.data ?? []} title='Top Rated' className='mb-5' />
+        <MoviesHorizontalList movies={topRatedQuery.data?.pages.flat() ?? []} title='Top Rated' className='mb-5' loadNextPage={topRatedQuery.fetchNextPage}/>
         {/* Upcoming List Movies */}
-        <MoviesHorizontalList movies={upComingQuery.data ?? []} title='Upcoming' className='mb-5' />
+        <MoviesHorizontalList movies={upComingQuery.data?.pages.flat() ?? []} title='Upcoming' className='mb-5' />
         <View className='flex-row justify-center items-baseline'>
           <Text>Provided by: {' '}
           <Pressable

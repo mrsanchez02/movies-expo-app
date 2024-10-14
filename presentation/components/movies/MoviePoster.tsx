@@ -19,7 +19,7 @@ const MoviePoster = ({poster, id, smallPoster = false, className}: MoviePosterPr
     >
       <Image 
         source={{uri: poster}} 
-        style={{width: smallPoster ? 85 : 175, height: smallPoster ? 130 : 250}} 
+        style={{width: smallPoster ? 90 : 170, height: smallPoster ? 130 : 250}} 
         className='rounded-2xl shadow-lg w-full h-full'
         resizeMode='cover'
       />
