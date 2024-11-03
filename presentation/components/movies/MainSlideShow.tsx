@@ -28,7 +28,7 @@ const MainSlideShow = ({movies}: MainSlideShowProps) => {
           alignItems: 'center',
         }}
         autoPlay
-        autoPlayInterval={5000}
+        autoPlayInterval={3000}
         mode="parallax"
         modeConfig={{
           parallaxScrollingScale: 0.9,

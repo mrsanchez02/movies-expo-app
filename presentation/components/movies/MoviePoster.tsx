@@ -1,7 +1,6 @@
-import { View, Text, Pressable, Image } from 'react-native'
-import React from 'react'
-import { Movie } from '@/infrastructure/interfaces/movie.interface'
 import { router } from 'expo-router';
+import React from 'react';
+import { Image, Pressable } from 'react-native';
 
 interface MoviePosterProps {
   id: number;
@@ -10,17 +9,20 @@ interface MoviePosterProps {
   className?: string;
 }
 
-const MoviePoster = ({poster, id, smallPoster = false, className}: MoviePosterProps) => {
+const placeholder = { uri: 'https://placehold.co/400x600/png' }
+
+const MoviePoster = ({ poster, id, smallPoster = false, className }: MoviePosterProps) => {
   return (
     <Pressable
       className={`active:opacity-90 px-2 ${className}`}
       onPress={() => router.push(`/movie/${id}`)}
     >
-      <Image 
-        source={{uri: poster}} 
-        style={{width: smallPoster ? 90 : 170, height: smallPoster ? 130 : 250}} 
+      <Image
+        source={{ uri: poster || placeholder.uri }}
+        style={{ width: smallPoster ? 90 : 170, height: smallPoster ? 130 : 250 }}
         className='rounded-2xl shadow-lg w-full h-full'
         resizeMode='cover'
+        defaultSource={placeholder}
       />
     </Pressable>
   )

@@ -9,7 +9,7 @@ interface Options {
 
 export const topRatedMoviesAction = async ({page = 1, limit = 10}: Options) => {
   try {
-    const { data } = await movieApi.get<MovieDBMoviesResponse>("/top_rated", {
+    const { data } = await movieApi.get<MovieDBMoviesResponse>("/movie/top_rated", {
       params: {
         page,
         limit

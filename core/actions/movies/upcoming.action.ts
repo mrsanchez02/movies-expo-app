@@ -9,7 +9,7 @@ interface Options {
 
 export const upComingMoviesAction = async ({page = 1, limit = 10}: Options) => {
   try {
-    const { data } = await movieApi.get<MovieDBMoviesResponse>("/upcoming", {
+    const { data } = await movieApi.get<MovieDBMoviesResponse>("/movie/upcoming", {
       params: {
         page, limit
       }

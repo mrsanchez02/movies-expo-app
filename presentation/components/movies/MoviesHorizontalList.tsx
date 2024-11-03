@@ -41,7 +41,7 @@ const MoviesHorizontalList = ({ movies, title, className, loadNextPage}: MoviesH
 
   return (
     <View className={`${className}`}>
-      {title && <Text className='text-2xl font-bold px-4 mb-2'>{title}</Text>}
+      {title && <Text className='text-2xl font-bold px-4 mb-2 text-white'>{title}</Text>}
       <FlatList
         horizontal
         data={movies}

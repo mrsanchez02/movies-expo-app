@@ -5,11 +5,12 @@ import { useMovie } from '@/presentation/hooks/useMovie';
 import MovieHeader from '@/presentation/components/movie/MovieHeader';
 import MovieDescription from '@/presentation/components/movie/MovieDescription';
 import MovieCast from '@/presentation/components/movie/MovieCast';
+import { StatusBar } from 'expo-status-bar';
 
 const MovieScreen = () => {
 
   const { id }  = useLocalSearchParams();
-  const { movieQuery, castQuery } = useMovie(+id);
+  const { movieQuery, castQuery } = useMovie({id: Number(id)});
 
   if (movieQuery.isLoading || !movieQuery.data) {
     return (
@@ -21,12 +22,15 @@ const MovieScreen = () => {
   }
 
   return (
-    <ScrollView>
-      {/* <Text>{movieQuery.data.title}</Text> */}
-      <MovieHeader originalTitle={movieQuery.data.originalTitle} poster={movieQuery.data.poster} title={movieQuery.data.title}/>
-      <MovieDescription movie={movieQuery.data} />
-      <MovieCast  cast={castQuery.data || []} />
-    </ScrollView>
+    <>
+      <StatusBar style="light" />
+      <ScrollView>
+        {/* <Text>{movieQuery.data.title}</Text> */}
+        <MovieHeader originalTitle={movieQuery.data.originalTitle} poster={movieQuery.data.poster} title={movieQuery.data.title}/>
+        <MovieDescription movie={movieQuery.data} />
+        <MovieCast  cast={castQuery.data || []} />
+      </ScrollView>
+    </>
   )
 }
 
