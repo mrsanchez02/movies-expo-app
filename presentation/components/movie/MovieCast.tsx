@@ -1,7 +1,6 @@
-import { View, Text } from 'react-native'
+import { View, Text, FlatList } from 'react-native'
 import React from 'react'
 import { ActorCard } from './ActorCard';
-import { FlatList } from 'react-native-gesture-handler';
 import { Cast } from '@/infrastructure/interfaces/cast.interface';
 
 interface Props {
