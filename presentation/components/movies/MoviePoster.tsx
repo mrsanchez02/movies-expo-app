@@ -31,7 +31,7 @@ const MoviePoster = ({ poster, id, smallPoster = false, className }: MoviePoster
         <Image
           source={{ uri: poster || placeholder.uri }}
           style={{ width, height }}
-          className='rounded-2xl shadow-lg w-full h-full'
+          className={`${isLoading ? '' : 'rounded-2xl'} shadow-lg w-full h-full`}
           resizeMode='cover'
           defaultSource={placeholder}
           onLoadStart={() => setIsLoading(true)}

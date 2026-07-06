@@ -20,7 +20,7 @@ export const ActorCard = ({ actor }: Props) => {
 
         <Image
           source={{ uri: actor.avatar }}
-          className="w-[100px] h-[150px] rounded-2xl shadow"
+          className={`w-[100px] h-[150px] ${isLoading ? '' : 'shadow rounded-2xl'}`}
           resizeMode="cover"
           onLoadStart={() => setIsLoading(true)}
           onLoadEnd={() => setIsLoading(false)}
